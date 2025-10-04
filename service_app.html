@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Axtra HTML5 Template">
+
+    <title>Service App - Health Hup</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/progressbar.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href="assets/css/master.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <!-- Cursor Animation -->
+    <div class="cursor1"></div>
+    <div class="cursor2"></div>
+
+
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loading">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+            <div class="bar bar6"></div>
+            <div class="bar bar7"></div>
+            <div class="bar bar8"></div>
+        </div>
+    </div>
+
+
+
+    <!-- Switcher Area Start -->
+    <div class="switcher__area">
+        <div class="switcher__icon">
+            <button id="switcher_open"><i class="fa-solid fa-gear"></i></button>
+            <button id="switcher_close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="switcher__items">
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <h2 class="switcher__title">Cursor</h2>
+                </div>
+                <div class="switcher__btn">
+                    <select name="cursor-style" id="cursor_style">
+            <option value="1">default</option>
+            <option selected value="2">animated</option>
+          </select>
+                </div>
+            </div>
+
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <h2 class="switcher__title">mode</h2>
+                </div>
+                <div class="switcher__btn mode-type wc-col-2">
+                    <button class="active" data-mode="light">light</button>
+                    <button data-mode="dark">dark</button>
+                </div>
+            </div>
+
+            <div class="switcher__item">
+                <div class="switch__title-wrap">
+                    <h2 class="switcher__title">Language Support</h2>
+                </div>
+                <div class="switcher__btn lang_dir wc-col-2">
+                    <button class="active" data-mode="ltr">AR</button>
+                    <button data-mode="rtl">en</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Switcher Area End -->
+
+
+
+    <!-- Scroll Smoother -->
+    <div class="has-smooth" id="has_smooth"></div>
+
+
+    <!-- Go Top Button -->
+    <button id="scroll_top" class="scroll-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+    <header class="header__area">
+        <div class="header__inner">
+            <div class="header__logo">
+
+                <div class="navigation__logo">
+                    <div class="navigation__logo-logomark"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="6" fill="#F3EF6A"/><path d="M13.0788 5.18059C13.4229 4.36611 14.5771 4.36611 14.9212 5.18059L17.1088 10.3591C17.2101 10.599 17.401 10.7899 17.6409 10.8912L22.8194 13.0788C23.6339 13.4229 23.6339 14.5771 22.8194 14.9212L17.6409 17.1088C17.401 17.2101 17.2101 17.401 17.1088 17.6409L14.9212 22.8194C14.5771 23.6339 13.4229 23.6339 13.0788 22.8194L10.8912 17.6409C10.7899 17.401 10.599 17.2101 10.3591 17.1088L5.18059 14.9212C4.36611 14.5771 4.36611 13.4229 5.18059 13.0788L10.3591 10.8912C10.599 10.7899 10.7899 10.599 10.8912 10.3591L13.0788 5.18059Z" fill="black"/></svg>                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="27" height="27" rx="5.5" stroke="#93D5E1" stroke-linejoin="round" stroke-dasharray="2 2"/></svg></div>
+                    <h1 class="navigation__logo-title"></h1>
+                </div>
+
+            </div>
+            
+            <div class="header__nav-icon">
+                <button id="open_offcanvas"><img src="assets/imgs/icon/menu-white.png" alt="Menubar Icon"></button>
+            </div>
+            <div class="header__support">
+                <p> <a href="#"></a></p>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+
+
+    <!-- Offcanvas area start -->
+    <div class="offcanvas__area">
+        <div class="offcanvas__body">
+            <div class="offcanvas__left">
+                <div class="offcanvas__logo">
+
+                    <div class="navigation__logo">
+                        <div class="navigation__logo-logomark"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="6" fill="#F3EF6A"/><path d="M13.0788 5.18059C13.4229 4.36611 14.5771 4.36611 14.9212 5.18059L17.1088 10.3591C17.2101 10.599 17.401 10.7899 17.6409 10.8912L22.8194 13.0788C23.6339 13.4229 23.6339 14.5771 22.8194 14.9212L17.6409 17.1088C17.401 17.2101 17.2101 17.401 17.1088 17.6409L14.9212 22.8194C14.5771 23.6339 13.4229 23.6339 13.0788 22.8194L10.8912 17.6409C10.7899 17.401 10.599 17.2101 10.3591 17.1088L5.18059 14.9212C4.36611 14.5771 4.36611 13.4229 5.18059 13.0788L10.3591 10.8912C10.599 10.7899 10.7899 10.599 10.8912 10.3591L13.0788 5.18059Z" fill="black"/></svg>                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="27" height="27" rx="5.5" stroke="#93D5E1" stroke-linejoin="round" stroke-dasharray="2 2"/></svg></div>
+                        <a href="index.html"><h1 class="navigation__logo-title" style="color: white;">HEALTH HUP</h1></a>
+                    </div>
+                    
+                </div>
+                <div class="offcanvas__social">
+                    <h3 class="social-title">Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Dribbble</a></li>
+                        <li><a href="#">Behance</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+                <div class="offcanvas__links">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="service.html">service</a></li>
+                        <li><a href="ifteam.html">Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="offcanvas__mid">
+                <div class="offcanvas__menu-wrapper">
+                    <nav class="offcanvas__menu">
+                        <ul class="menu-anim">
+                            <li><a>home</a>
+                                <ul>
+                                    <li><a href="application.html">review application</a></li>
+                                    <li><a href="application.html">download application</a></li>
+                                    <li><a href="about.html">about a patient </a></li>
+                                    <li><a href="about.html">about doctors</a></li>
+                                    <li><a href="about.html">about medicines</a></li>
+                                    <li><a href="about.html">About Pharmacies</a></li>
+                                    <li><a href="service_app.html">service app</a></li>
+                                    <li><a href="service.html">service patient</a></li>
+                                    <li><a href="service.html">service doctors</a></li>
+                                    <li><a href="ifteam.html">about team</a></li>
+                                    <li><a href="contact.html">contact us</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="application.html">application</a>
+                                <ul></ul>
+                            </li>
+                            <li>
+                                <a href="about.html">about us</a>
+                                <ul>
+                                    
+                                </ul>
+                            </li>
+                            <li>
+                                <a>service</a>
+                                <ul>
+
+                                    <li>
+                                        <a href="service.html">Service</a>
+                                    </li>
+                                    <li>
+                                        <a href="service_app.html">service app</a>
+                                        
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="ifteam.html">team</a>
+                                <ul>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact.html">contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="offcanvas__right">
+                <div class="offcanvas__search">
+                    <form action="#">
+                        <input type="text" name="search" placeholder="Search keyword">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+                <div class="offcanvas__contact">
+                    <h3>Get in touch</h3>
+                    <ul>
+                        <li><a href="tel:010000000">+(20) - 100 000 000</a></li>
+                        <li><a href="HealthHup@gmail.com">HealthHup@gmail.com</a></li>
+                        <li>Egypt , Kafr el-Sheikh 94301</li>
+                    </ul>
+                </div>
+                <img src="assets/imgs/shape/11.png" alt="shape" class="shape-1">
+                <img src="assets/imgs/shape/12.png" alt="shape" class="shape-2">
+            </div>
+            <div class="offcanvas__close">
+                <button type="button" id="close_offcanvas"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- Offcanvas area end -->
+
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <main>
+
+                <!-- Hero area start -->
+                <section class="solution__area">
+                    <div class="container hero-line"></div>
+                    <div class="solution__wrapper">
+                        <div class="solution__left">
+                            <div class="solution__img-1">
+                                <img src="assets/imgs/thumb/solution.png" alt="Solution Image">
+                            </div>
+                            <div class="solution__img-2">
+                                <img src="assets/imgs/thumb/solution-2.png" alt="Solution Image">
+                            </div>
+                        </div>
+
+                        <div class="solution__mid">
+                            <h1 class="solution__title animation__char_come">App Service</h1>
+                            <p>Here are the details  our mobile application and the services we offer in the medical field in Health Hup.</p>
+                        </div>
+
+                        <div class="solution__right">
+                            <div class="solution__img-3">
+                                <img src="assets/imgs/thumb/solution-3.png" alt="Solution Image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container pb-130">
+                        <div class="row">
+                            <div class="col-xxl-12">
+                                <div class="solution__btm">
+                                    <ul>
+                                        <li>medical</li>
+                                        <li>Healthy</li>
+                                        <li>Happy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="solution__shape">
+                        <img src="assets/imgs/icon/1.png" alt="Shape Image" class="shape-1">
+                        <img src="assets/imgs/icon/2.png" alt="Shape Image" class="shape-2">
+                        <img src="assets/imgs/icon/3.png" alt="Shape Image" class="shape-3">
+                        <img src="assets/imgs/icon/4.png" alt="Shape Image" class="shape-4">
+                        <img src="assets/imgs/icon/5.png" alt="Shape Image" class="shape-5">
+                    </div>
+                </section>
+                <!-- Hero area end -->
+
+
+                <!-- Service area start -->
+                <section class="service__area-6">
+                    <div class="container">
+                        <div class="row inherit-row">
+                            <div class="col-xxl-12">
+                                <div class="content-wrapper">
+                                    <div class="left-content">
+                                        <ul class="service__list-6">
+                                            <li class="active"><a href="#service_1">Register <br>Health Hup</a></li>
+                                            <li><a href="#service_2">Find Right<br>Doctors</a></li>
+                                            <li><a href="#service_3">Getting<br>prescription</a></li>
+                                            <li><a href="#service_4">Verification not <br> Opposed</a></li>
+                                            <li><a href="#service_5">Alternative Drug<br> Verification</a></li>
+                                            <li><a href="#service_6">Search for <br> Pharmacy</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="mid-content">
+                                        <div class="service__image">
+                                            <img src="assets/imgs/service/1.jpeg" alt="Service Image">
+                                        </div>
+                                        <div class="service__image">
+                                            <img src="assets/imgs/service/2.jpeg" alt="Service Image">
+                                        </div>
+                                        <div class="service__image">
+                                            <img src="assets/imgs/service/3.jpeg" alt="Service Image">
+                                        </div>
+                                        <div class="service__image">
+                                            <img src="assets/imgs/service/4.jpeg" alt="Service Image">
+                                        </div>
+                                        <div class="service__image">
+                                            <img src="assets/imgs/service/5.jpeg" alt="Service Image">
+                                        </div>
+                                        <div class="service__image">
+                                            <img src="assets/imgs/service/6.jpeg" alt="Service Image">
+                                        </div>
+                                    </div>
+
+                                    <div class="right-content">
+                                        <div class="service__items-6">
+
+                                            <div class="service__item-6 has__service_animation" id="service_1" data-secid="1">
+                                                <div class="image-tab">
+                                                    <img src="assets/imgs/service/1.jpg" alt="Service Image">
+                                                </div>
+
+                                                <div class="animation__service_page">
+                                                    <h2 class="service__title-6">Open an account in our app Health Hup</h2>
+                                                    <p>You can now register on our website or smartphone app to enjoy the best health experience to include all our features and services. login now website app to enjoy the best health experience to include all our features and services.</p>
+                                                    <ul>
+                                                        <li>+ Application</li>
+                                                        <li>+ doctor</li>
+                                                        <li>+ prescription</li>
+                                                        <li>+ correcting errors</li>
+                                                        <li>+ Pharmacies Classification</li>
+                                                        <li>+ All Social Communication</li>
+                                                    </ul>
+                                                    <div class="btn_wrapper">
+                                                        <a href="login.html" class="wc-btn-secondary btn-item btn-hover"><span></span>Sgin up 
+                              <br> Free<i class="fa-solid fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="service__item-6" id="service_2" data-secid="2">
+                                                <div class="image-tab">
+                                                    <img src="assets/imgs/service/2.jpg" alt="Service Image">
+                                                </div>
+
+                                                <div class="animation__service_page">
+                                                    <h2 class="service__title-6">From the search list you can write Dr.</h2>
+                                                    <p>Find the right doctor by using our search engine that offers fast and smooth performance, to show you all doctors close to you with their assessment and you can see it and see the doctor's data and means of communication.</p>
+                                                    <ul>
+                                                        <li>+ Application</li>
+                                                        <li>+ doctor</li>
+                                                        <li>+ prescription</li>
+                                                        <li>+ correcting errors</li>
+                                                        <li>+ Pharmacies Classification</li>
+                                                        <li>+ All Social Communication</li>
+                                                    </ul>
+                                                    <div class="btn_wrapper">
+                                                        <a href="Login.html" class="wc-btn-secondary btn-item btn-hover"><span></span>Sgin Up
+                              <br>Free<i class="fa-solid fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="service__item-6" id="service_3" data-secid="3">
+
+                                                <div class="image-tab">
+                                                    <img src="assets/imgs/service/3.jpg" alt="Service Image">
+                                                </div>
+
+                                                <div class="animation__service_page">
+                                                    <h2 class="service__title-6">You get the electronics workshop from the doctor.</h2>
+                                                    <p>After completing the diagnosis you are sent a prescription or electronic workshop using AI so that there are no mistakes, the line is understandable and clear.</p>
+                                                    <ul>
+                                                        <li>+ Application</li>
+                                                        <li>+ doctor</li>
+                                                        <li>+ prescription</li>
+                                                        <li>+ correcting errors</li>
+                                                        <li>+ Pharmacies Classification</li>
+                                                        <li>+ All Social Communication</li>
+                                                    </ul>
+                                                    <div class="btn_wrapper">
+                                                        <a href="login.html" class="wc-btn-secondary btn-item btn-hover"><span></span>Sgin Up
+                              <br>Free<i class="fa-solid fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="service__item-6" id="service_4" data-secid="4">
+                                                <div class="image-tab">
+                                                    <img src="assets/imgs/service/4.jpg" alt="Service Image">
+                                                </div>
+
+                                                <div class="animation__service_page">
+                                                    <h2 class="service__title-6">Verification Not Opposed Medications</h2>
+                                                    <p>AI is used to detect prescription or prescription with great care and to detect if there is a mistake and our services provide you with research in the pharmaceutical library and all information about it.</p>
+                                                    <ul>
+                                                        <li>+ Application</li>
+                                                        <li>+ doctor</li>
+                                                        <li>+ prescription</li>
+                                                        <li>+ correcting errors</li>
+                                                        <li>+ Pharmacies Classification</li>
+                                                        <li>+ All Social Communication</li>
+                                                    </ul>
+                                                    <div class="btn_wrapper">
+                                                        <a href="Login.html" class="wc-btn-secondary btn-item btn-hover"><span></span>Sgin Up
+                              <br>Free <i class="fa-solid fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="service__item-6" id="service_5" data-secid="5">
+                                                <div class="image-tab">
+                                                    <img src="assets/imgs/service/5.jpg" alt="Service Image">
+                                                </div>
+
+                                                <div class="animation__service_page">
+                                                    <h2 class="service__title-6">Alternative Drug Verification</h2>
+                                                    <p>The workshop is detected using artificial intelligence and is seen if the drug opposes the other in terms of effect and reveals whether it is opposed to the interactions of quantitative substances, searches for available alternatives and provides them to the doctor.</p>
+                                                    <ul>
+                                                        <li>+ Application</li>
+                                                        <li>+ doctor</li>
+                                                        <li>+ prescription</li>
+                                                        <li>+ correcting errors</li>
+                                                        <li>+ Pharmacies Classification</li>
+                                                        <li>+ All Social Communication</li>
+                                                    </ul>
+                                                    <div class="btn_wrapper">
+                                                        <a href="service-details.html" class="wc-btn-secondary btn-item btn-hover"><span></span>Sgin Up
+                              <br>Free <i class="fa-solid fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="service__item-6" id="service_6" data-secid="6">
+                                                <div class="image-tab">
+                                                    <img src="assets/imgs/service/4.jpg" alt="Service Image">
+                                                </div>
+
+                                                <div class="animation__service_page">
+                                                    <h2 class="service__title-6">Search for Pharmacy</h2>
+                                                    <p>Using a prescription or a workshop, you can find the nearest pharmacies available to you.</p>
+                                                    <ul>
+                                                        <li>+ Application</li>
+                                                        <li>+ doctor</li>
+                                                        <li>+ prescription</li>
+                                                        <li>+ correcting errors</li>
+                                                        <li>+ Pharmacies Classification</li>
+                                                        <li>+ All Social Communication</li>
+                                                    </ul>
+                                                    <div class="btn_wrapper">
+                                                        <a href="service-details.html" class="wc-btn-secondary btn-item btn-hover"><span></span>Sgin Up
+                              <br>Free <i class="fa-solid fa-arrow-right"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Service area end -->
+
+
+                <!-- Brand area start -->
+                <section class="brand__area">
+                    <div class="container line pt-140 pb-100">
+                        <span class="line-3"></span>
+                        <div class="row">
+                            <div class="col-xxl-12">
+                                <h2 class="brand__title-3 title-anim">OUR WORK WITH THE WORLD'S LARGEST COMPANIES</h2>
+                                <div class="brand__list brand-gap">
+                                    <div class="brand__item-2 fade_bottom">
+                                        <img src="assets/imgs/brand/1.png" alt="Brand Logo">
+                                    </div>
+                                    <div class="brand__item-2 fade_bottom">
+                                        <img src="assets/imgs/brand/2.png" alt="Brand Logo">
+                                    </div>
+                                    <div class="brand__item-2 fade_bottom">
+                                        <img src="assets/imgs/brand/3.png" alt="Brand Logo">
+                                    </div>
+                                    <div class="brand__item-2 fade_bottom">
+                                        <img src="assets/imgs/brand/4.png" alt="Brand Logo">
+                                    </div>
+                                    <div class="brand__item-2 fade_bottom">
+                                        <img src="assets/imgs/brand/5.png" alt="Brand Logo">
+                                    </div>
+                                    <div class="brand__item-2 fade_bottom">
+                                        <img src="assets/imgs/brand/6.png" alt="Brand Logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Brand area end -->
+
+
+                <!-- CTA area start -->
+                <section class="cta__area">
+                    <div class="container line pt-100 pb-110 no-p">
+                        <div class="line-3"></div>
+                        <div class="row">
+                            <div class="col-xxl-12">
+                                <div class="cta__content">
+                                    <p class="cta__sub-title">Work with us</p>
+                                    <h2 class="cta__title title-anim">Register with us for the best health care</h2>
+                                    <div class="btn_wrapper">
+                                        <a href="Login.html" class="wc-btn-primary btn-item btn-hover"><span></span>Sgin Up <i
+                        class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- CTA area end -->
+
+            </main>
+
+
+
+            <!-- Footer area start -->
+            <footer class="footer__area" data-scroll-section>
+                <div class="footer__top">
+                    <div class="container footer-line"></div>
+                    <img src="assets/imgs/thumb/footer.jpeg" alt="Footer Image" data-speed="0.5">
+                </div>
+
+                <div class="footer__btm">
+                    <div class="container">
+                        <div class="row footer__row">
+                            <div class="col-xxl-12">
+                                <div class="footer__inner">
+                                    <div class="footer__widget">
+                                        <div class="navigation__logo">
+                                            <div class="navigation__logo-logomark"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="28" height="28" rx="6" fill="#F3EF6A"/><path d="M13.0788 5.18059C13.4229 4.36611 14.5771 4.36611 14.9212 5.18059L17.1088 10.3591C17.2101 10.599 17.401 10.7899 17.6409 10.8912L22.8194 13.0788C23.6339 13.4229 23.6339 14.5771 22.8194 14.9212L17.6409 17.1088C17.401 17.2101 17.2101 17.401 17.1088 17.6409L14.9212 22.8194C14.5771 23.6339 13.4229 23.6339 13.0788 22.8194L10.8912 17.6409C10.7899 17.401 10.599 17.2101 10.3591 17.1088L5.18059 14.9212C4.36611 14.5771 4.36611 13.4229 5.18059 13.0788L10.3591 10.8912C10.599 10.7899 10.7899 10.599 10.8912 10.3591L13.0788 5.18059Z" fill="black"/></svg>                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="27" height="27" rx="5.5" stroke="#93D5E1" stroke-linejoin="round" stroke-dasharray="2 2"/></svg></div>
+                                            <a href="index.html"><h1 class="navigation__logo-title" style="color: white;">HEALTH HUP</h1></a>
+                                            
+                                        </div>
+                                        
+                                        <p>When do they work well, and when do they on us and finally, when do we actually need how can we avoid them.
+                                        </p>
+                                        <ul class="footer__social">
+                                            <li><a href="#"><span><i class="fa-brands fa-facebook-f"></i></span></a></li>
+                                            <li><a href="#"><span><i class="fa-brands fa-twitter"></i></span></a></li>
+                                            <li><a href="#"><span><i class="fa-brands fa-instagram"></i></span></a></li>
+                                            <li><a href="#"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="footer__widget-2">
+                                        <h2 class="footer__widget-title">Information</h2>
+                                        <ul class="footer__link">
+                                            <li><a href="about.html">Aabout us</a></li>
+                                            <li><a href="service.html">Service</a></li>
+                                            <li><a href="ifteam.html">Team</a></li>
+                                            <li><a href="application.html">Application</a></li>
+                                            <li><a href="contact.html">contact</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="footer__widget-3">
+                                        <h2 class="footer__widget-title">Contact Us</h2>
+                                        <ul class="footer__contact">
+                                            <li>Egypt , Kafr el-Sheikh 94301 , Egypt</li>
+                                            <li><a href="tel:02094980547" class="phone">+(20) - 100 000 000</a></li>
+                                            
+                                            <li><a href="HealthHup@gmail.com">HealthHup@gmail.com</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="footer__widget-4">
+                                        <h2 class="project-title">Are you complaining about something?</h2>
+                                        <div class="btn_wrapper">
+                                            <a href="contact.html" class="wc-btn-primary btn-hover btn-item"><span></span> contact us <i
+                          class="fa-solid fa-arrow-right"></i></a>
+                                        </div>
+                                        <h3 class="contact-time">09 : 00 AM - 10 : 30 PM</h3>
+                                        <h4 class="contact-day">Saturday - Thursday</h4>
+                                    </div>
+
+                                    <div class="footer__copyright">
+                                        <p>© 2024 - 2025 | Alrights reserved by <a href="intro.html" target="_blank">Health HUP</a>
+                                        </p>
+                                    </div>
+
+                                    <div class="footer__subscribe">
+                                        <form action="#">
+                                            <input type="email" name="email" placeholder="Enter your email">
+                                            <button type="submit" class="subs-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer area end -->
+
+
+        </div>
+    </div>
+
+
+
+    <!-- All JS files -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/chroma.min.js"></script>
+    <script src="assets/js/mixitup.min.js"></script>
+    <script src="assets/js/vanilla-tilt.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+
+</html>
