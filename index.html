@@ -30,6 +30,21 @@
 
 
 <body>
+        <script>
+            // If a demo session isn't present, send user to login page.
+            // This keeps the site static-friendly and doesn't require server changes.
+            try {
+                const sess = localStorage.getItem('hms_session_v1') || sessionStorage.getItem('hms_session_v1');
+                if (!sess) {
+                    // prevent redirect loop when already on login page
+                    if (!location.pathname.endsWith('/login.html') && !location.pathname.endsWith('/login') ) {
+                        location.replace('login.html');
+                    }
+                }
+            } catch (e) {
+                // ignore storage errors and don't block page load
+            }
+        </script>
     <!-- Cursor Animation -->
     <div class="cursor1"></div>
     <div class="cursor2"></div>
