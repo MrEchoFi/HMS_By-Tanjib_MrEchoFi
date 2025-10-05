@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HMS — Login / Register</title>
+  <meta name="description" content="Hospital Management System — Login and Registration " />
+  <style>
+    /* Minimal, clean styling */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(135deg,#eef6ff 0,#ffffff 40%,#f0fffb 100%);color:#0b1220}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{width:100%;max-width:920px;display:grid;grid-template-columns:1fr 420px;gap:20px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.08);overflow:hidden;border:1px solid rgba(2,6,23,0.04)}
+    .left{padding:40px;background:linear-gradient(180deg,#0369a1,#06b6d4);color:#fff;display:flex;flex-direction:column;gap:12px}
+    .logo{width:68px;height:68px;border-radius:12px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:28px}
+    .title{font-size:22px;font-weight:800;letter-spacing:-0.2px}
+    .desc{opacity:0.95;max-width:320px;line-height:1.45}
+    .right{padding:28px;display:flex;flex-direction:column;gap:12px}
+    .topbar{display:flex;justify-content:space-between;align-items:flex-start}
+    .muted{color:#64748b;font-size:13px}
+    .tabs{display:flex;background:#f3f4f6;padding:6px;border-radius:10px;gap:8px}
+    .tab{flex:1;text-align:center;padding:10px 12px;border-radius:8px;cursor:pointer;font-weight:700;color:#475569}
+    .tab.active{background:#fff;color:#0369a1;box-shadow:0 6px 14px rgba(3,105,161,0.08)}
+    form{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+    label{font-size:13px;color:#334155;font-weight:700;margin-bottom:6px}
+    .input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #e6eef6;background:#fbfdff;font-size:14px;outline:none}
+    .input:focus{box-shadow:0 8px 20px rgba(3,105,161,0.06);border-color:#7dd3fc}
+    .row{display:flex;gap:10px}
+    .col{flex:1;display:flex;flex-direction:column}
+    .select{padding:10px;border-radius:10px;border:1px solid #e6eef6}
+    .btn{padding:12px;border-radius:10px;border:none;cursor:pointer;font-weight:800;color:#fff;background:linear-gradient(90deg,#0369a1,#06b6d4);box-shadow:0 10px 24px rgba(3,105,161,0.08)}
+    .btn.ghost{background:transparent;color:#0369a1;border:1px solid #e6eef6;box-shadow:none}
+    .msg{padding:10px 12px;border-radius:8px;font-size:13px}
+    .msg.success{background:#ecfdf5;color:#064e3b;border:1px solid #bbf7d0}
+    .msg.error{background:#fff1f2;color:#9f1239;border:1px solid #fecaca}
+    .small{font-size:12px;color:#475569}
+    .link{color:#0369a1;cursor:pointer;text-decoration:underline}
+    .footer{font-size:12px;color:#94a3b8;text-align:center;margin-top:6px}
+    @media(max-width:920px){.card{grid-template-columns:1fr}.left{padding:22px}.right{padding:20px}}
+    .field-inline{display:flex;align-items:center;gap:8px}
+    .showpass{cursor:pointer;border-radius:8px;padding:6px 8px;background:transparent;border:1px solid transparent;color:#475569;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main" aria-labelledby="page-title">
+      <section class="left" aria-hidden="false">
+        <div class="logo" aria-hidden="true">H</div>
+        <div>
+          <div id="page-title" class="title">HMS</div>
+          <div class="desc">Secure demo authentication UI — register locally and login. This is a static client-side demo intended for prototyping and teaching only.</div>
+        </div>
+        <div style="margin-top:auto;font-size:13px;opacity:0.95;">
+          <div><strong>Fast:</strong> Works locally in the browser.</div>
+          <div style="margin-top:8px;"><strong>Portable:</strong> Deploy as static site to Vercel.</div>
+        </div>
+      </section>
+
+      <aside class="right" aria-label="Auth forms">
+        <div class="topbar">
+          <div>
+            <div style="font-weight:900;font-size:18px;color:#0b1220">Welcome</div>
+            <div class="muted" style="margin-top:6px">Sign in or create your account</div>
+          </div>
+          <div style="text-align:right">
+            <div class="small">Demo • Client-only</div>
+            <div class="small">No server required</div>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Login or Register">
+          <button id="tabLogin" class="tab active" role="tab" aria-selected="true">Login</button>
+          <button id="tabRegister" class="tab" role="tab" aria-selected="false">Register</button>
+        </div>
+
+        <div id="messageArea" aria-live="polite" style="min-height:44px"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" autocomplete="on" novalidate>
+          <div>
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="email" type="email" class="input" placeholder="you@example.com" required />
+          </div>
+
+          <div>
+            <label for="loginPassword">Password</label>
+            <div class="field-inline">
+              <input id="loginPassword" name="password" type="password" class="input" placeholder="●●●●●●●●" required />
+              <button type="button" id="loginToggle" class="showpass" aria-pressed="false">Show</button>
+            </div>
+          </div>
+
+          <div class="row" style="align-items:center;justify-content:space-between">
+            <label class="small" style="display:flex;align-items:center;gap:8px"><input id="remember" type="checkbox" /> Remember me</label>
+            <button type="button" id="forgot" class="link small" aria-haspopup="dialog">Forgot?</button>
+          </div>
+
+          <button type="submit" class="btn" id="btnLogin">Login</button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="registerForm" style="display:none" autocomplete="on" novalidate>
+          <div>
+            <label for="regName">Full Name</label>
+            <input id="regName" name="fullName" type="text" class="input" placeholder="Jane Doe" required />
+          </div>
+
+          <div>
+            <label for="regEmail">Email</label>
+            <input id="regEmail" name="email" type="email" class="input" placeholder="you@example.com" required />
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="regPhone">Phone</label>
+              <input id="regPhone" name="phone" type="tel" class="input" placeholder="+8801XXXXXXXXX" required />
+            </div>
+            <div class="col">
+              <label for="regDob">Date of Birth</label>
+              <input id="regDob" name="dob" type="date" class="input" />
+            </div>
+          </div>
+
+          <div>
+            <label for="regRole">Role</label>
+            <select id="regRole" class="select" required>
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+              <option value="nurse">Nurse</option>
+              <option value="admin">Administrator</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="regPassword">Password</label>
+            <div class="field-inline">
+              <input id="regPassword" name="password" type="password" class="input" placeholder="At least 8 characters" required />
+              <button type="button" id="regToggle" class="showpass" aria-pressed="false">Show</button>
+            </div>
+            <div class="small muted" style="margin-top:6px">Use 8+ characters for demo.</div>
+          </div>
+
+          <div>
+            <label for="regConfirm">Confirm Password</label>
+            <input id="regConfirm" name="confirm" type="password" class="input" placeholder="Repeat password" required />
+          </div>
+
+          <button type="submit" class="btn" id="btnRegister">Create Account</button>
+        </form>
+
+        <div class="footer">By using this demo you agree this is for learning only — do not register real users or PII.</div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+  (function () {
+    // Keys used in storage
+    const USERS_KEY = 'hms_users_v1';
+    const SESSION_KEY = 'hms_session_v1';
+
+    // Elements
+    const tabLogin = document.getElementById('tabLogin');
+    const tabRegister = document.getElementById('tabRegister');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const messageArea = document.getElementById('messageArea');
+    const loginToggle = document.getElementById('loginToggle');
+    const regToggle = document.getElementById('regToggle');
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    const remember = document.getElementById('remember');
+
+    // Tab handlers
+    function showLogin() {
+      tabLogin.classList.add('active'); tabLogin.setAttribute('aria-selected','true');
+      tabRegister.classList.remove('active'); tabRegister.setAttribute('aria-selected','false');
+      loginForm.style.display = ''; registerForm.style.display = 'none';
+      clearMessage();
+    }
+    function showRegister() {
+      tabRegister.classList.add('active'); tabRegister.setAttribute('aria-selected','true');
+      tabLogin.classList.remove('active'); tabLogin.setAttribute('aria-selected','false');
+      registerForm.style.display = ''; loginForm.style.display = 'none';
+      clearMessage();
+    }
+    tabLogin.addEventListener('click', showLogin);
+    tabRegister.addEventListener('click', showRegister);
+
+    // Message UI
+    function showMessage(text, type='success', timeout=3500) {
+      clearMessage();
+      const d = document.createElement('div');
+      d.className = 'msg ' + (type === 'success' ? 'success' : 'error');
+      d.textContent = text;
+      messageArea.appendChild(d);
+      if (timeout > 0) setTimeout(()=> { if (messageArea.contains(d)) d.remove(); }, timeout);
+      d.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+    function clearMessage(){ messageArea.innerHTML = ''; }
+
+    // Hashing helper (SHA-256) -> hex
+    async function sha256Hex(input) {
+      const enc = new TextEncoder();
+      const data = enc.encode(input);
+      const hash = await crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('');
+    }
+
+    // Storage helpers
+    function loadUsers() {
+      try { return JSON.parse(localStorage.getItem(USERS_KEY) || '[]'); } catch(e){ return []; }
+    }
+    function saveUsers(users) { localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
+
+    // Validators
+    function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+    function strongPassword(p) { return p && p.length >= 8; }
+    function validPhone(p) { return p && p.trim().length >= 7; }
+
+    // Toggle show/hide passwords
+    loginToggle.addEventListener('click', () => {
+      const t = loginPassword.type === 'password' ? 'text' : 'password';
+      loginPassword.type = t; loginToggle.textContent = t === 'text' ? 'Hide' : 'Show';
+      loginToggle.setAttribute('aria-pressed', t === 'text');
+    });
+    regToggle.addEventListener('click', () => {
+      const rpw = document.getElementById('regPassword');
+      const t = rpw.type === 'password' ? 'text' : 'password';
+      rpw.type = t; regToggle.textContent = t === 'text' ? 'Hide' : 'Show';
+      regToggle.setAttribute('aria-pressed', t === 'text');
+    });
+
+    // Handle Register
+    registerForm.addEventListener('submit', async (ev) => {
+      ev.preventDefault(); clearMessage();
+      const name = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const phone = document.getElementById('regPhone').value.trim();
+      const dob = document.getElementById('regDob').value;
+      const role = document.getElementById('regRole').value;
+      const password = document.getElementById('regPassword').value;
+      const confirm = document.getElementById('regConfirm').value;
+
+      if (!name || !email || !phone || !password || !confirm) { showMessage('Complete all required fields.', 'error'); return; }
+      if (!validEmail(email)) { showMessage('Enter a valid email.', 'error'); return; }
+      if (!validPhone(phone)) { showMessage('Enter a valid phone.', 'error'); return; }
+      if (!strongPassword(password)) { showMessage('Password must be at least 8 characters.', 'error'); return; }
+      if (password !== confirm) { showMessage('Passwords do not match.', 'error'); return; }
+
+      const users = loadUsers();
+      if (users.some(u => u.email === email)) { showMessage('Email already registered. Try logging in.', 'error'); return; }
+
+      const hash = await sha256Hex(password);
+      const newUser = {
+        id: 'u_' + Date.now().toString(36),
+        fullName: name,
+        email,
+        phone,
+        dob,
+        role,
+        passwordHash: hash,
+        createdAt: new Date().toISOString()
+      };
+      users.push(newUser);
+      saveUsers(users);
+      showMessage('Registration successful — you may now login.', 'success');
+
+      // Reset register form and switch to login; prefill email
+      registerForm.reset();
+      setTimeout(() => { showLogin(); loginEmail.value = email; document.getElementById('loginPassword').focus(); }, 900);
+    });
+
+    // Handle Login
+    loginForm.addEventListener('submit', async (ev) => {
+      ev.preventDefault(); clearMessage();
+      const email = loginEmail.value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const rem = remember.checked;
+
+      if (!email || !password) { showMessage('Enter both email and password.', 'error'); return; }
+      if (!validEmail(email)) { showMessage('Enter a valid email address.', 'error'); return; }
+
+      const users = loadUsers();
+      const user = users.find(u => u.email === email);
+      if (!user) { showMessage('No account found. Please register.', 'error'); return; }
+
+      const hash = await sha256Hex(password);
+      if (hash !== user.passwordHash) { showMessage('Invalid credentials.', 'error'); return; }
+
+      // Login success — create demo session
+      const session = { email: user.email, fullName: user.fullName, role: user.role, loggedAt: new Date().toISOString() };
+      try {
+        if (rem) localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+        else sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+      } catch (e) {
+        // fallback if storage denied
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+      }
+      showMessage('Login successful — redirecting...', 'success', 800);
+
+      setTimeout(() => {
+        // redirect to dashboard (ensure dashboard.html exists in your project)
+        window.location.href = '/index.html';
+      }, 800);
+    });
+
+    // Forgot (simple demo behavior)
+    document.getElementById('forgot').addEventListener('click', () => {
+      const email = prompt('Enter your registered email:');
+      if (!email) return;
+      const users = loadUsers();
+      const u = users.find(x => x.email === email.toLowerCase().trim());
+      if (!u) return alert('No account found for that email.');
+      
+    });
+
+    // If session already exists, optionally show resumed session message
+    (function resume() {
+      try {
+        const existing = localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
+        if (existing) {
+          const s = JSON.parse(existing);
+          if (s && s.email) {
+            showMessage(`Resumed session: ${s.fullName || s.email} (${s.role}) — demo session active.`, 'success', 4000);
+          }
+        }
+      } catch(e){}
+    })();
+
+  })();
+  </script>
+
+  
+</body>
+</html>
