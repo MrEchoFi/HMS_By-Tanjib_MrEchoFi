@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://github.com/MrEchoFi/MrEchoFi/raw/4274f537dec313ac7dde4403fe0fae24259beade/Mr.EchoFi-New-Logo-with-ASCII.jpg" alt="logo" width="265" height="auto" />
-  <h1>Hspital Management System [HMS]</h1>
+  <h1>Hspital Management System [HMS] By Md. Abu Naser Nayeem _TanjibIsham [MrEchoFi]</h1>
    
   <p>
     LIVE: https://hms-by-tanjib-mr-echo-fi.vercel.app/
